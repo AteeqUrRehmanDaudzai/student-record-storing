@@ -16,6 +16,19 @@ The file [`experiment_manifest.csv`](experiment_manifest.csv) records the suppli
 | 1 | Yellow 8, Green 1/1 | FLIR0626-FLIR0638 | Glass, ITO, PVK semitransparent, PVK opaque |
 | 2 | Yellow 4, Green 1/16 | FLIR0639-FLIR0650 | Reverse-order PVK opaque, PVK semitransparent, ITO, Glass |
 
+
+## Google Colab quick start
+
+A ready-to-edit notebook is included at [`colab/FLIR_flash_analysis_colab.ipynb`](../colab/FLIR_flash_analysis_colab.ipynb). To run from GitHub in Colab:
+
+1. Open Google Colab and choose **File > Open notebook > GitHub**.
+2. Paste your repository URL and open `colab/FLIR_flash_analysis_colab.ipynb`.
+3. In the first code cell, set `REPO_URL` to your repository URL, for example `https://github.com/<your-user>/student-record-storing.git`.
+4. Put exported FLIR videos in Google Drive, for example `MyDrive/FLIR_flash/data/raw/FLIR0626.avi` through `FLIR0650.avi`.
+5. Set `VIDEO_DIR`, `OUTPUT_DIR`, `SAMPLE_THICKNESS_M`, and optional `ROI`, then run the notebook cells.
+
+The notebook installs `thermal_flash_analysis/requirements.txt`, runs the same CLI documented below, displays `all_summaries.csv`, and zips result files for download.
+
 ## Input video preparation
 
 Place videos in a folder such as `data/raw/`. OpenCV-readable files such as `.avi`, `.mp4`, `.mov`, and some FLIR-exported video formats are supported directly. If the original FLIR files are radiometric `.seq`/`.fff` files, export them first to a temperature image sequence or video from FLIR software, or convert them with a FLIR radiometric tool before using this script.

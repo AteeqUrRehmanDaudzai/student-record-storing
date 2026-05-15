@@ -16,7 +16,12 @@ from pathlib import Path
 from typing import Iterable
 
 
-RUNTIME_DEPENDENCIES = ("cv2", "matplotlib", "numpy", "pandas")
+RUNTIME_DEPENDENCIES = {
+    "cv2": "opencv-python",
+    "matplotlib": "matplotlib",
+    "numpy": "numpy",
+    "pandas": "pandas",
+}
 VIDEO_EXTENSIONS = (".avi", ".mp4", ".mov", ".mkv", ".mpeg", ".mpg")
 
 
@@ -331,9 +336,13 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-
 def missing_runtime_dependencies() -> list[str]:
-    return [name for name in RUNTIME_DEPENDENCIES if importlib.util.find_spec(name) is None]
+    return [
+        package_name
+        for module_name, package_name in RUNTIME_DEPENDENCIES.items()
+        if importlib.util.find_spec(module_name) is None
+    ]
+
 
 def main() -> None:
     parser = build_parser()

@@ -1,23 +1,32 @@
-# Build and Release Folders
+# C/C++ build outputs
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Build directories
 bin/
-bin-debug/
-bin-release/
-[Oo]bj/ # FlashDevelop obj
-[Bb]in/ # FlashDevelop bin
+build/
+debug/
+release/
+[Bb]in/
+[Oo]bj/
 
-# Other files and folders
+# Runtime/generated data
+stud.dat
+*.tmp
+
+# Editor and OS files
+.vscode/
+.idea/
 .settings/
+.DS_Store
+Thumbs.db
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
-
-# Python caches
+# Python caches if helper scripts are added later
 __pycache__/
 *.py[cod]
